@@ -1,0 +1,1 @@
+export const LOGO_IMG_SRC = "https://icons.veryicon.com/png/o/food--drinks/yoga-flat-icon/healthy-food.png";
