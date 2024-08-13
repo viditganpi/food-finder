@@ -5,3 +5,5 @@ const RecipeCard = () => {
         </div>
     );
 }
+
+export default RecipeCard

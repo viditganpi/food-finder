@@ -1,11 +1,11 @@
-import FoodCard from "./FoodCard";
 import Header from "./Header";
+import FoodList from "./FoodList";
 
 const Body = () => {
   return (
     <div>
       <Header/>
-      <FoodCard/>
+      <FoodList/>
     </div>
   );
 }
