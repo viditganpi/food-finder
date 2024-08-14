@@ -34,7 +34,7 @@ const RecipeList = () => {
     }, [foodSelection]);
     
     return (
-        <div>
+        <div className='flex flex-wrap'>
             {
                 recipies && recipies.map((recipie) => (
                     <RecipieCard key={recipie.id} recipieDetails={recipie} />
