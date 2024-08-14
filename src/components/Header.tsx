@@ -45,7 +45,7 @@ const Header = () => {
         <div className="flex justify-between bg-[#223D44]">
             <div className="flex">
                 <img src={LOGO_IMG_SRC} className="w-20 h-20" alt="food main logo"></img>
-                <h1 className="text-xl text-white mt-8">Food Finder</h1>
+                <h1 className="text-xl text-white mt-8">Recipe Finder</h1>
             </div>
             <div className="relative">
                 <input type="text" placeholder="🔎 Search Bar" onChange={handleSearch} ref={foodToSearch} className="search-input mt-6 p-1 mr-4 rounded-lg"></input>                

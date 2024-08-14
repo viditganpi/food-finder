@@ -10,6 +10,7 @@ const RecipeList = () => {
     const {foodSelection, updateFoodSelection} = useContext(FoodContext);
     
     const fetchRecipies = async (recipeQuery: string) => {
+        console.log("calling fetchRecipies");
         const receipeSearchEndpoint = `${EDAMAM_BASE_URL}/recipes/v2?type=public&q=${recipeQuery}&app_id=${EDAMAM_APP_ID}&app_key=${EDAMAM_APP_KEY}`;
         
         const response = await fetch(receipeSearchEndpoint);
