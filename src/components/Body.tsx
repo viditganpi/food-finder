@@ -1,12 +1,18 @@
+import { useState } from "react";
 import Header from "./Header";
-import FoodList from "./FoodList";
+import RecipeList from "./RecipeList";
+import FoodContext from "../utils/FoodContext";
 
 const Body = () => {
+  const [foodSelection, updateFoodSelection] = useState<string>("");
+  
   return (
+    <FoodContext.Provider value={{foodSelection, updateFoodSelection}}>
     <div>
       <Header/>
-      <FoodList/>
+      <RecipeList />
     </div>
+    </FoodContext.Provider>
   );
 }
 

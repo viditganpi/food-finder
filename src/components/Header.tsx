@@ -1,13 +1,17 @@
-import { useRef, useState, useEffect } from "react";
+import { useRef, useState, useEffect, useContext } from "react";
 import { LOGO_IMG_SRC } from "../utils/constants";
 import { FoodItem } from "../utils/commonTypes";
 import fetchFoodItems from "../hooks/useFoodItems";
+import FoodContext from "../utils/FoodContext";
 
 const Header = () => {
     const foodToSearch = useRef<HTMLInputElement | null>(null);
     
     const [foodItems, updateFoodItems] = useState<FoodItem[]>([]);
     const [foodQuery, updateFoodQuery] = useState<string>("");
+    const [isFoodListVisible, setIsListVisible] = useState<boolean>(true);
+
+    const {foodSelection, updateFoodSelection} = useContext(FoodContext);
 
     useEffect(() => {
         const foodItemQuery = foodToSearch?.current?.value || "";
@@ -29,7 +33,14 @@ const Header = () => {
             updateFoodQuery(foodItemQuery);
         }
     }
-    
+
+    const handleFoodSelection = (foodName: string) => {
+        updateFoodSelection(foodName);
+        setIsListVisible(false);
+        updateFoodItems([]);
+        foodToSearch.current!.value = foodName;
+    }
+
     return (
         <div className="flex justify-between bg-[#223D44]">
             <div className="flex">
@@ -38,10 +49,10 @@ const Header = () => {
             </div>
             <div className="relative">
                 <input type="text" placeholder="🔎 Search Bar" onChange={handleSearch} ref={foodToSearch} className="search-input mt-6 p-1 mr-4 rounded-lg"></input>                
-                {foodItems.length > 0 && (
+                {foodItems.length > 0 && isFoodListVisible && (
                     <ul className="absolute left-0 right-0 mt-1 p-1 bg-white rounded-lg shadow-lg z-10">
                         {foodItems.map((food) => (
-                            <li key={food.id} className="p-2 hover:bg-gray-200 cursor-pointer">
+                            <li key={food.id} className="p-2 hover:bg-gray-200 cursor-pointer" onClick={() => handleFoodSelection(food.name)}>
                                 {food.name}
                             </li>
                         ))}
