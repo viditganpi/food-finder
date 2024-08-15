@@ -32,6 +32,7 @@ const Header = () => {
         if(foodItemQuery.length > 5 && foodItemQuery !== foodQuery) {
             updateFoodQuery(foodItemQuery);
         }
+        !isFoodListVisible && setIsListVisible(true);
     }
 
     const handleFoodSelection = (foodName: string) => {

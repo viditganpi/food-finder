@@ -7,6 +7,7 @@ export type RecipeItem = {
     id: string;
     name: string;
     image: string;
+    source: string;
 }
 
 export type FoodContextType = {

@@ -23,11 +23,23 @@ const RecipeList = () => {
         fetchRecipies(foodSelection)
         .then((data) => {
             console.log(data);
-            const filteredRecipies = data.map((recipie: any) => ({
-                id: uuidv4(),
-                image: recipie.recipe.image,
-                name: recipie.recipe.label,
-            }));
+            const uniqueRecipies = new Set<string>();
+            const filteredData = data.filter((recipie: any) => {
+                if(uniqueRecipies.has(recipie.recipe.url.trim())) {
+                    return false;
+                }
+                uniqueRecipies.add(recipie.recipe.url.trim());
+                return true;
+            });
+            console.log(filteredData);
+            const filteredRecipies = filteredData.map((recipie: any) => {
+                return {
+                    id: uuidv4(),
+                    image: recipie.recipe.image,
+                    name: recipie.recipe.label,
+                    source: recipie.recipe.url,
+                }
+            });
             updateRecipiesList(filteredRecipies as RecipeItem[]);
         }).catch((error) => {
             console.error(error);
