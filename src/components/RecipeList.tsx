@@ -7,7 +7,7 @@ import { EDAMAM_APP_ID, EDAMAM_APP_KEY, EDAMAM_BASE_URL } from '../utils/constan
 
 const RecipeList = () => {
     const [recipies, updateRecipiesList] = useState<RecipeItem[]>([]);
-    const {foodSelection, updateFoodSelection} = useContext(FoodContext);
+    const {foodSelection} = useContext(FoodContext);
     
     const fetchRecipies = async (recipeQuery: string) => {
         console.log("calling fetchRecipies");

@@ -11,7 +11,7 @@ const Header = () => {
     const [foodQuery, updateFoodQuery] = useState<string>("");
     const [isFoodListVisible, setIsListVisible] = useState<boolean>(true);
 
-    const {foodSelection, updateFoodSelection} = useContext(FoodContext);
+    const {updateFoodSelection} = useContext(FoodContext);
 
     useEffect(() => {
         const foodItemQuery = foodToSearch?.current?.value || "";
