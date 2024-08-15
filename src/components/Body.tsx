@@ -4,7 +4,7 @@ import RecipeList from "./RecipeList";
 import FoodContext from "../utils/FoodContext";
 
 const Body = () => {
-  const [foodSelection, updateFoodSelection] = useState<string>("");
+  const [foodSelection, updateFoodSelection] = useState<string>("biryani");
   
   return (
     <FoodContext.Provider value={{foodSelection, updateFoodSelection}}>
