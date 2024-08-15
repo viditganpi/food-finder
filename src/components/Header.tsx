@@ -45,11 +45,11 @@ const Header = () => {
     return (
         <div className="flex justify-between bg-[#223D44]">
             <div className="flex">
-                <img src={LOGO_IMG_SRC} className="w-20 h-20" alt="food main logo"></img>
-                <h1 className="text-xl text-white mt-8">Recipe Finder</h1>
+                <img src={LOGO_IMG_SRC} className="w-12 h-12 md:w-20 md:h-20" alt="food main logo"></img>
+                <h1 className="text-lg md:text-xl text-white md:mt-8 mt-2">Recipe Finder</h1>
             </div>
             <div className="relative">
-                <input type="text" placeholder="🔎 Search Bar" onChange={handleSearch} ref={foodToSearch} className="search-input mt-6 p-1 mr-4 rounded-lg"></input>                
+                <input type="text" placeholder="🔎 Search Recipe" onChange={handleSearch} ref={foodToSearch} className="search-input mt-3 mr-2 md:mt-6 md:p-1 md:mr-4 rounded-lg"></input>                
                 {foodItems.length > 0 && isFoodListVisible && (
                     <ul className="absolute left-0 right-0 mt-1 p-1 bg-white rounded-lg shadow-lg z-10">
                         {foodItems.map((food) => (
